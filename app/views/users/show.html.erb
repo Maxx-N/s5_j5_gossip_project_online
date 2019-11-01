@@ -1,0 +1,8 @@
+<h1>Utilisateur n° <%= @my_user.id %></h1>
+<br>
+<p><u>Prénom :</u> <%= @my_user.first_name %></p>
+<p><u>Nom :</u> <%= @my_user.last_name %></p>
+<p><u>Description :</u> <%= @my_user.description %></p>
+<p><u>E-Mail :</u> <%= @my_user.email %></p>
+<p><u>Âge :</u> <%= @my_user.age %></p>
+<p><u>Ville :</u> <%= link_to "#{@my_user.city.name}", city_path(@my_user.city.id)%></p>

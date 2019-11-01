@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> 
+
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      
+      <a class="navbar-brand" href="/">ACCUEIL</a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item nav-link">
+            <%= link_to "L'équipe", team_path %>
+          </li>
+          <li class="nav-item nav-link">
+            <%= link_to "Nous contacter", contact_path %>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <% if current_user %>
+          <h3 class="nav-item nav-link"> Bienvenu(e) <%= link_to "#{current_user.first_name.titleize}", user_path(current_user.id) %> ! </h3>
+        <% end %>
+      </div>
+
+      <div class="dropdown">
+        <% unless current_user %>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Se connecter / S'inscrire
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to "Se connecter", new_session_path %>
+            <br>
+            <%= link_to "S'inscrire", new_user_path %>
+          </div>
+        <% else %>
+          <%= link_to "Se déconnecter", session_path(session.id), method: :delete %>
+        <% end %>
+
+      </div>
+    
+    </nav>
+    <%= yield %>
+  </body>
+</html>
+
+

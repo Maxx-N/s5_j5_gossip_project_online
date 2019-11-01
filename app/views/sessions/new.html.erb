@@ -1,0 +1,10 @@
+<h1>CONNECTE-TOI ET VIENT COMMÉRER !!!</h1>
+<br><br>
+<form action="/sessions" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <h3>Ton e-mail: <input type="text" name="user_email"></h3>
+  <br>
+  <h4>Ton mot de passe : <input type="text" name="user_password"></h4>
+  <br><br>
+  <input type="submit" name="valider">
+</form>

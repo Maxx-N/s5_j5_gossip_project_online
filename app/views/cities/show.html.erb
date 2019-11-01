@@ -1,0 +1,12 @@
+<h1>Ville : <%= @user_city.name %> </h1>
+<br>
+<h2>Voici la liste des potins écrits par les utilisateurs de cette ville :</h2>
+  <% @user_city.users.each do |u| %>
+    <% u.gossips.each do |g| %>
+      <ul> <u><strong><%= link_to "#{g.title}", gossip_path(g.id) %></strong></u>
+        <li>Potin : <%= g.content %></li>
+        <li>Écrit par : <%= link_to "#{g.user.first_name}", user_path(g.user.id) %></li>
+      </ul>
+    <%end%> 
+    <br>
+  <%end%>

@@ -1,0 +1,8 @@
+<h1><strong>VOICI LE POTIN N° <%= @my_gossip.id %> : </strong></h1>
+<br><br>
+<p><u>Titre</u> : <%= @my_gossip.title %> </p>
+<br>
+<p><u>Contenu</u> : <br><%= @my_gossip.content %> </p>
+<br>
+<p><u>Auteur</u> : <%= link_to "#{@my_gossip.user.first_name}  #{@my_gossip.user.last_name}", user_path(@my_gossip.user.id) %>, de <%= link_to "#{@my_gossip.user.city.name}", city_path(@my_gossip.user.city.id) %> </p>
+<br>

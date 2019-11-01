@@ -1,0 +1,16 @@
+<h1>INSCRIS-TOI ET VIENT COMMÉRER !!!</h1>
+<br><br>
+<form action="/users" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <h3>Ton e-mail: <input type="text" name="new_email"></h3>
+  <br>
+  <h4>Ton mot de passe : <input type="text" name="new_password"></h4>
+  <h4>Confirme ton mot de passe : <input type="text" name="new_password_confirmation"></h4>
+  <br><br><br>
+  <p>Prénom : <input type="text" name="new_first_name"></p>
+  <p>Nom : <input type="text" name="new_last_name"></p>
+  <p>Âge : <input type="text" name="new_age"></p>
+  <p>Ville : <input type="text" name="new_city"></p>
+  <p>Description (optionnel) : <input type="text" name="new_description"></p>
+  <input type="submit" name="valider">
+</form>

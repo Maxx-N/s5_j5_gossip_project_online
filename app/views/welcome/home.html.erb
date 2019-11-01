@@ -1,0 +1,32 @@
+<% if current_user %> 
+
+  <h1>Salut <%= current_user.first_name.titleize %> !!!</h1>
+  <br>
+  <h3>Clique <%= link_to "ici", new_gossip_path %> pour créer ton potin... </h3>
+  <br>
+  <br>
+  <h2>Voici la liste des potins postés : </h2>
+  <%@gossip_list.each do |g|%>
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="card-header">
+        <%= link_to "Potin n° #{g.id}", gossip_path(g.id) %>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          <ul>
+            <li>Titre : <%= g.title %></li>
+            <br>
+            <li>Auteur : <%= link_to "#{g.user.first_name}", user_path(g.user.id) %></li>
+          </ul>
+        </p>
+      </div>
+    </div>
+  <%end%>
+
+<% else %>
+
+  <h1>Bienvenu(e) sur notre super site de commérage !!!</h1>
+  <br><br>
+  <h2> Inscris-toi ou connecte-toi pour venir partager de délicieux potins !!! </h2>
+
+<% end %>
